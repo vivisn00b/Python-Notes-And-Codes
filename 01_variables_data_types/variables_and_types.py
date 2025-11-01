@@ -1,6 +1,3 @@
-# 01_variables_and_types.py
-# Purpose: Understand variables, data types, and how Python stores information.
-
 # -----------------------------------------
 # 1. VARIABLES — names that refer to values
 # -----------------------------------------

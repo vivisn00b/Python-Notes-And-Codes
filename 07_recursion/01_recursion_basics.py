@@ -47,3 +47,14 @@ def sum_of_digits(n):
     else:
         return n%10 + sum_of_digits(n//10)
 print(sum_of_digits(1234))
+
+
+# EXAMPLE 4: Reverse a string recursively
+
+def reverse_string(s):
+    if len(s) == 0:
+        return s
+    else:
+        return reverse_string(s[1:]) + s[0]
+
+print(reverse_string("python"))  # nohtyp

@@ -1,0 +1,21 @@
+{
+    "company": "XYZ InfoTech",
+    "employees": [
+        {
+            "name": "Amit",
+            "dept": "HR",
+            "salary": 50000
+        },
+        {
+            "name": "Priya",
+            "dept": "IT",
+            "salary": 65000
+        },
+        {
+            "name": "Rahul",
+            "dept": "Finance",
+            "salary": 60000
+        }
+    ],
+    "location": "India"
+}

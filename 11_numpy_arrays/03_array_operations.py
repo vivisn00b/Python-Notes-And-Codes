@@ -74,3 +74,24 @@ a = np.array(vals, dtype=dtype)
 
 print(np.sort(a, order='name'))
 print(np.sort(a, order=['year', 'cgpa']))
+
+
+# EXTRAS
+rg = np.random.default_rng(1)     # create instance of default random number generator
+a = np.ones((2, 3), dtype = int)
+b = rg.random((2, 3))
+print(a, "\n", b)
+#a += b     # error because datatype of aarrays are different
+
+c = np.exp(a * 1j)
+print(c)
+print(c.dtype)
+
+print(a.sum(axis=0))     # sum of each column
+print(b.min(axis=1))     # min of each row
+print(a.cumsum(axis=1))  # cumulative sum along each row
+
+X = np.arange(3)
+print(X)
+print(np.exp(X))
+print(np.sqrt(X))

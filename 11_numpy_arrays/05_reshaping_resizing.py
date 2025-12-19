@@ -9,3 +9,8 @@ print(r)
 b = np.array([1, 2, 3, 4, 5, 6, 7, 8])
 r = b.reshape(2, 2, 2)     # 3D array
 print(r)
+
+# Use -1 when one dimension is unknown. NumPy calculates that missing dimension automatically.
+c = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+r = c.reshape(3, -1)
+print(r)

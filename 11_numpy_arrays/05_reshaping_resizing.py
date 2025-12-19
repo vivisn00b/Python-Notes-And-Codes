@@ -5,3 +5,7 @@ import numpy as np
 a = np.array([1, 2, 3, 4, 5, 6])
 r = a.reshape(2, 3)
 print(r)
+
+b = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+r = b.reshape(2, 2, 2)     # 3D array
+print(r)

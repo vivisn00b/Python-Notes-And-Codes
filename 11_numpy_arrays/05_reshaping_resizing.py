@@ -95,3 +95,8 @@ print(np.c_[0:3, 3:6])   # ranges of column
 print(np.c_[a, np.full(len(a), 10)])      # mixing arrays and scalars
 print(np.c_[a, [10, 10, 10]])
 
+# Splitting one array into several smaller ones
+m = np.floor(10 * rg.random((2, 12)))
+print(m)
+print(np.hsplit(m, 3))      # Split `a` into 3
+print(np.hsplit(a, (3, 4)))      # Split `a` after the third and the fourth column

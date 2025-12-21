@@ -59,3 +59,35 @@ print(array[:, np.newaxis])
 arr = np.array([1, 2, 3, 4])
 arr[1:3] = 99
 print(arr)
+
+# Why does np.s_ exist?
+# When slices are dynamic, stored in variables, passed to functions, used in advanced indexing, np.s_ becomes very useful.
+# np.s_ is a slicing helper in NumPy
+# Used to create slice objects
+# Mainly useful for dynamic and reusable slicing
+# np.s_[start:stop:step]
+import numpy as np
+arr = np.array([10, 20, 30, 40, 50])
+print(arr[np.s_[1:4]])      # same as arr[1:4]
+
+s = np.s_[1:4]      # storing in variable
+print(arr[s])
+
+arr = np.arange(1, 11)
+print(arr[np.s_[::2]])   # every 2nd element
+print(arr[np.s_[1::2]])  # odd index elements
+
+mat = np.array([[1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]])
+print(mat[np.s_[0:2, 1:3]])
+print(mat[np.s_[1, :]])
+print(mat[np.s_[:, 0]])
+s = np.s_[1:3, :]
+print(mat[s])
+
+# np.s_ in functions
+def extract(arr, slicer):
+    return arr[slicer]
+arr = np.arange(10)
+print(extract(arr, np.s_[2:8:2]))

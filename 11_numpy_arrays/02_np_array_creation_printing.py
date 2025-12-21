@@ -46,6 +46,10 @@ print(f)
 x = np.sin(f)
 print(f)
 
+# np.full is a NumPy function used to create an array filled with a constant value
+# np.full(shape, fill_value, dtype=None)
+print(np.full(5, 7))     # 1D array
+print(np.full((2, 3), 6))       # 2D array
 
 # PRINTING ARRAYS:
 g = np.arange(24).reshape(2, 3, 4)      # prints 2 3x4 arrays

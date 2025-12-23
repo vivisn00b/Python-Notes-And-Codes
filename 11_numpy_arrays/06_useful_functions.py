@@ -63,3 +63,53 @@ print(
     ff, r,
     sep="\n\n"
 )
+
+# Conversions
+# ndarray.astype, atleast_1d, atleast_2d, atleast_3d, asmatrix
+a = np.array([1, 2, 3])
+b = np.array([[1, 2], [3, 4]])
+
+# -------------------------------
+# astype (change data type)
+# -------------------------------
+a_float = a.astype(float)
+a_str = a.astype(str)
+
+# -------------------------------
+# atleast_1d
+# -------------------------------
+at1_scalar = np.atleast_1d(5)
+at1_array = np.atleast_1d(a)
+
+# -------------------------------
+# atleast_2d
+# -------------------------------
+at2_scalar = np.atleast_2d(5)
+at2_array = np.atleast_2d(a)
+at2_matrix = np.atleast_2d(b)
+
+# -------------------------------
+# atleast_3d
+# -------------------------------
+at3_scalar = np.atleast_3d(5)
+at3_array = np.atleast_3d(a)
+at3_matrix = np.atleast_3d(b)
+
+# -------------------------------
+# mat (convert to matrix class)
+# -------------------------------
+m1 = np.asmatrix(a)
+m2 = np.asmatrix(b)
+m3 = np.asmatrix("1 2; 3 4")
+
+# -------------------------------
+# Print all (optional)
+# -------------------------------
+print(
+    a_float, a_str,
+    at1_scalar, at1_array,
+    at2_scalar, at2_array, at2_matrix,
+    at3_scalar, at3_array, at3_matrix,
+    m1, m2, m3,
+    sep="\n\n"
+)

@@ -51,6 +51,30 @@ print(f)
 print(np.full(5, 7))     # 1D array
 print(np.full((2, 3), 6))       # 2D array
 
+# Copies and views
+a = np.array([[ 0, 1, 2, 3],
+              [ 4, 5, 6, 7],
+              [ 8, 9, 10, 11]])
+b = a     # no new object is created
+print(b is a)      # a and b are two names for the same ndarray object
+# view or shallow copy
+c = a.view()
+print(c is a)      # False
+print(c.base is a)     # c is a view of the data owned by a
+print(c.flags.owndata)     # False
+# slicing an array returns a view of it:
+s = a[:, 1:3]
+print(s)
+s[:] = 10      # s[:] is a view of s; s[:] → all elements in s; assigns 10 to every element in s
+print(s)
+print(a)     # Because s is a view, the original array a is also modified.
+# deep copy
+d = a.copy()    # a new array object with new data is created
+print(d is a)   # False
+print(d.base is a)     # False, d doesn't share anything with a
+d[0, 0] = 9999
+print(d, "\n", a)
+
 # PRINTING ARRAYS:
 g = np.arange(24).reshape(2, 3, 4)      # prints 2 3x4 arrays
 print(g)

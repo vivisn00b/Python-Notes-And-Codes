@@ -108,7 +108,7 @@ print(
     sep="\n\n"
 )
 
-# Manipulations
+# MANIPULATIONS
 # array_split, column_stack, concatenate, diagonal, dsplit, dstack, hsplit, hstack, ndarray.item, newaxis, ravel, repeat, reshape, resize, squeeze, swapaxes, take, transpose, vsplit, vstack
 a = np.array([[1, 2], [3, 4]])
 b = np.array([[5, 6], [7, 8]])
@@ -194,3 +194,23 @@ print("item:", c.item(0))
 
 # newaxis: Adds a new dimension to array
 print("newaxis:\n", c[:, np.newaxis])
+
+# QUESTIONS
+# all, any, nonzero, where
+a = np.array([1, 0, 3, 0, 5])
+
+# all(): True if all elements are non-zero / True
+print("all:", np.all(a))
+
+# any(): True if at least one element is non-zero / True
+print("any:", np.any(a))
+
+# nonzero(): Returns indices of non-zero elements
+print("nonzero:", np.nonzero(a))
+
+# where(): Returns indices where condition is True
+print("where a > 2:", np.where(a > 2))
+
+# where() with condition (ternary operation)
+b = np.where(a > 2, a, 0)
+print("where condition result:", b)

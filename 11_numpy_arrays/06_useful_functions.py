@@ -51,9 +51,6 @@ ff = np.fromfunction(lambda i, j: i + j, (3, 3))
 # -------------------------------
 r = np.r_[1:5]
 
-# -------------------------------
-# Print all (optional)
-# -------------------------------
 print(
     a, b, z, o, e,
     z_like, o_like, e_like,
@@ -64,7 +61,7 @@ print(
     sep="\n\n"
 )
 
-# Conversions
+# CONVERSIONS
 # ndarray.astype, atleast_1d, atleast_2d, atleast_3d, asmatrix
 a = np.array([1, 2, 3])
 b = np.array([[1, 2], [3, 4]])
@@ -102,9 +99,6 @@ m1 = np.asmatrix(a)
 m2 = np.asmatrix(b)
 m3 = np.asmatrix("1 2; 3 4")
 
-# -------------------------------
-# Print all (optional)
-# -------------------------------
 print(
     a_float, a_str,
     at1_scalar, at1_array,
@@ -113,3 +107,90 @@ print(
     m1, m2, m3,
     sep="\n\n"
 )
+
+# Manipulations
+# array_split, column_stack, concatenate, diagonal, dsplit, dstack, hsplit, hstack, ndarray.item, newaxis, ravel, repeat, reshape, resize, squeeze, swapaxes, take, transpose, vsplit, vstack
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+c = np.array([9, 10])
+
+# -------------------------------
+# JOINING / STACKING OPERATIONS
+# -------------------------------
+
+# concatenate(): Joins arrays along an existing axis
+print("concatenate:\n", np.concatenate((a, b), axis=0))
+
+# hstack(): Stacks arrays horizontally (column-wise)
+print("hstack:\n", np.hstack((a, b)))
+
+# vstack(): Stacks arrays vertically (row-wise)
+print("vstack:\n", np.vstack((a, b)))
+
+# dstack(): Stacks arrays along depth (3rd axis)
+print("dstack:\n", np.dstack((a, b)))
+
+# column_stack(): Stacks 1D arrays as columns into a 2D array
+print("column_stack:\n", np.column_stack((c, c)))
+
+# -------------------------------
+# SPLITTING OPERATIONS
+# -------------------------------
+
+# array_split(): Splits array into sub-arrays (unequal split allowed)
+print("array_split:", np.array_split(c, 2))
+
+# hsplit(): Splits array horizontally
+print("hsplit:", np.hsplit(a, 2))
+
+# vsplit(): Splits array vertically
+print("vsplit:", np.vsplit(a, 2))
+
+# -------------------------------
+# SHAPE MANIPULATION
+# -------------------------------
+
+# reshape(): Changes shape without changing data
+print("reshape:\n", a.reshape(4, 1))
+
+# ravel(): Flattens array into 1D (returns view if possible)
+print("ravel:", a.ravel())
+
+# squeeze(): Removes axes of length 1
+print("squeeze:", np.squeeze(np.array([[[1, 2, 3]]])))
+
+# transpose(): Swaps rows and columns
+print("transpose:\n", a.transpose())
+
+# swapaxes(): Swaps any two axes
+print("swapaxes:\n", np.swapaxes(a, 0, 1))
+
+# -------------------------------
+# SIZE MODIFICATION
+# -------------------------------
+
+# repeat(): Repeats elements of an array
+print("repeat:", np.repeat(c, 2))
+
+# resize(): Resizes array (repeats data if new size is larger)
+print("resize:\n", np.resize(c, (3, 3)))
+
+# -------------------------------
+# INDEXING / SELECTION
+# -------------------------------
+
+# take(): Takes elements from array using indices
+print("take:", np.take(c, [0, 1]))
+
+# diagonal(): Returns diagonal elements of array
+print("diagonal:", np.diagonal(a))
+
+# ndarray.item(): Returns Python scalar from array
+print("item:", c.item(0))
+
+# -------------------------------
+# DIMENSION EXPANSION
+# -------------------------------
+
+# newaxis: Adds a new dimension to array
+print("newaxis:\n", c[:, np.newaxis])

@@ -297,3 +297,30 @@ print("putmask:", e)
 
 # sum(): Sum of elements
 print("sum:", np.sum(a))
+
+
+# BASIC LINEAR ALGEBRA
+# cross, dot, outer, linalg.svd, vdot
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+# cross(): Cross product of vectors
+print("cross:", np.cross(a, b))
+
+# dot(): Dot product
+print("dot:", np.dot(a, b))
+
+# outer(): Outer product
+print("outer:\n", np.outer(a, b))
+
+# vdot(): Vector dot product (handles complex numbers)
+c = np.array([1+2j, 3+4j])
+d = np.array([5+6j, 7+8j])
+print("vdot:", np.vdot(c, d))
+
+# linalg.svd(): Singular Value Decomposition
+M = np.array([[1, 2], [3, 4]])
+U, S, Vt = np.linalg.svd(M)
+print("SVD U:\n", U)
+print("SVD S:\n", S)
+print("SVD Vt:\n", Vt)

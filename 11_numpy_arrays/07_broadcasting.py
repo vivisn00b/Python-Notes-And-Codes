@@ -69,3 +69,26 @@ mean = X.mean(axis=0)
 std = X.std(axis=0)
 X_scaled = (X - mean) / std
 print(X_scaled)
+
+# Normalization Example
+X_norm = X / X.max(axis=0)
+print(X_norm)
+
+# Distance Calculation Using Broadcasting
+points = np.array([[1, 2],
+                   [3, 4],
+                   [5, 6]])
+
+origin = np.array([0, 0])
+
+distances = np.sqrt(((points - origin) ** 2).sum(axis=1))
+print(distances)
+
+
+# Broadcasting Cheat Sheet:
+# Scalar + Array        → OK
+# (2, 3) + (3,)         → Row-wise
+# (2, 3) + (2, 1)       → Column-wise
+# Use axis=0            → Operate per column
+# Use axis=1            → Operate per row
+# Force dimension       → np.newaxis or reshape

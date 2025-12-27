@@ -61,6 +61,7 @@ print(
     sep="\n\n"
 )
 
+
 # CONVERSIONS
 # ndarray.astype, atleast_1d, atleast_2d, atleast_3d, asmatrix
 a = np.array([1, 2, 3])
@@ -107,6 +108,7 @@ print(
     m1, m2, m3,
     sep="\n\n"
 )
+
 
 # MANIPULATIONS
 # array_split, column_stack, concatenate, diagonal, dsplit, dstack, hsplit, hstack, ndarray.item, newaxis, ravel, repeat, reshape, resize, squeeze, swapaxes, take, transpose, vsplit, vstack
@@ -195,6 +197,7 @@ print("item:", c.item(0))
 # newaxis: Adds a new dimension to array
 print("newaxis:\n", c[:, np.newaxis])
 
+
 # QUESTIONS
 # all, any, nonzero, where
 a = np.array([1, 0, 3, 0, 5])
@@ -214,3 +217,83 @@ print("where a > 2:", np.where(a > 2))
 # where() with condition (ternary operation)
 b = np.where(a > 2, a, 0)
 print("where condition result:", b)
+
+
+# ORDERING
+# argmax, argmin, argsort, max, min, ptp, searchsorted, sort
+a = np.array([40, 10, 30, 20])
+
+# max(): Maximum value
+print("max:", np.max(a))
+
+# min(): Minimum value
+print("min:", np.min(a))
+
+# argmax(): Index of maximum value
+print("argmax:", np.argmax(a))
+
+# argmin(): Index of minimum value
+print("argmin:", np.argmin(a))
+
+# ptp(): Peak to peak (max - min)
+print("ptp:", np.ptp(a))
+
+# argsort(): Indices that would sort the array
+print("argsort:", np.argsort(a))
+
+# sort(): Sorts the array in-place
+sorted_a = np.sort(a)
+print("sort:", sorted_a)
+
+# searchsorted(): Index to insert element to keep array sorted
+print("searchsorted (25):", np.searchsorted(sorted_a, 25))
+
+
+# OPERATIONS
+# choose, compress, cumprod, cumsum, inner, ndarray.fill, imag, prod, put, putmask, real, sum
+a = np.array([1, 2, 3, 4])
+b = np.array([10, 20, 30, 40])
+cond = np.array([True, False, True, False])
+
+# choose(): Select elements based on index array
+choices = np.array([[1, 2, 3, 4], [10, 20, 30, 40]])
+index = np.array([0, 1, 0, 1])
+print("choose:", np.choose(index, choices))
+
+# compress(): Select elements where condition is True
+print("compress:", np.compress(cond, a))
+
+# cumsum(): Cumulative sum
+print("cumsum:", np.cumsum(a))
+
+# cumprod(): Cumulative product
+print("cumprod:", np.cumprod(a))
+
+# inner(): Inner product of arrays
+print("inner:", np.inner(a, b))
+
+# ndarray.fill(): Fill array with a value
+x = np.empty(4)
+x.fill(5)
+print("fill:", x)
+
+# Complex number operations
+c = np.array([1+2j, 3+4j])
+print("real:", c.real)
+print("imag:", c.imag)
+
+# prod(): Product of elements
+print("prod:", np.prod(a))
+
+# put(): Replace elements at given indices
+d = a.copy()
+np.put(d, [0, 2], [100, 200])
+print("put:", d)
+
+# putmask(): Replace elements where condition is True
+e = a.copy()
+np.putmask(e, e > 2, 99)
+print("putmask:", e)
+
+# sum(): Sum of elements
+print("sum:", np.sum(a))

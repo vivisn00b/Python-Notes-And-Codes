@@ -334,4 +334,3 @@ U, S, Vt = np.linalg.svd(M)
 print("SVD U:\n", U)
 print("SVD S:\n", S)
 print("SVD Vt:\n", Vt)
-

@@ -111,7 +111,7 @@ print(
 
 
 # MANIPULATIONS
-# array_split, column_stack, concatenate, diagonal, dsplit, dstack, hsplit, hstack, ndarray.item, newaxis, ravel, repeat, reshape, resize, squeeze, swapaxes, take, transpose, vsplit, vstack
+# array_split, column_stack, concatenate, diagonal, dsplit, dstack, hsplit, hstack, ndarray.item, newaxis, ravel, repeat, reshape, resize, squeeze, stack, swapaxes, take, transpose, vsplit, vstack
 a = np.array([[1, 2], [3, 4]])
 b = np.array([[5, 6], [7, 8]])
 c = np.array([9, 10])
@@ -134,6 +134,16 @@ print("dstack:\n", np.dstack((a, b)))
 
 # column_stack(): Stacks 1D arrays as columns into a 2D array
 print("column_stack:\n", np.column_stack((c, c)))
+
+# stack(): Join multiple arrays by creating a new axis in the output array
+m = np.array([[[1, 2], [3, 4]],
+              [[5, 6], [7, 8]]])
+n = np.array([[[10, 20], [30, 40]],
+              [[50, 60], [70, 80]]])
+print(np.stack((m, n), axis=0))
+print(np.stack((m, n), axis=1))
+print(np.stack((m, n), axis=2))
+print(np.stack((m, n), axis=3))
 
 # -------------------------------
 # SPLITTING OPERATIONS
@@ -324,3 +334,4 @@ U, S, Vt = np.linalg.svd(M)
 print("SVD U:\n", U)
 print("SVD S:\n", S)
 print("SVD Vt:\n", Vt)
+

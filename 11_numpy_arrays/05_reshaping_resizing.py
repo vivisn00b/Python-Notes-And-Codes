@@ -96,7 +96,30 @@ print(np.c_[a, np.full(len(a), 10)])      # mixing arrays and scalars
 print(np.c_[a, [10, 10, 10]])
 
 # Splitting one array into several smaller ones
+# numpy.hsplit() performs horizontal splitting, which divides the array column-wise (axis=1)
 m = np.floor(10 * rg.random((2, 12)))
 print(m)
 print(np.hsplit(m, 3))      # Split `a` into 3
 print(np.hsplit(a, (3, 4)))      # Split `a` after the third and the fourth column
+
+# numpy.split() is used to divide an array into equal-sized subarrays.
+# The number of splits must perfectly divide the size of the array along the chosen axis.
+# If equal division is not possible, NumPy will raise an error.
+arr = np.arange(6)
+res = np.split(arr, 2)
+print(res)
+
+# numpy.array_split() works like split(), but it allows uneven splitting.
+arr = np.arange(13)
+res = np.array_split(arr, 4)
+print(res)
+
+# numpy.vsplit() performs vertical splitting, meaning it divides a matrix row-wise (along axis=0).
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
+res = np.vsplit(arr, 2)
+print(res)
+
+# numpy.dsplit() is used for 3D arrays. It splits the array along the third axis (axis=2).
+arr = np.arange(24).reshape((2, 3, 4))
+res = np.dsplit(arr, 2)
+print(res)

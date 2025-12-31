@@ -75,13 +75,45 @@ a = np.array(vals, dtype=dtype)
 print(np.sort(a, order='name'))
 print(np.sort(a, order=['year', 'cgpa']))
 
+# MASKING: filtering data using conditions, without loops.
+arr = np.array([10, 25, 40, 55, 70])
+mask = arr > 40
+print(mask)
+
+high_values = arr > 40     # save the mask (best practice)
+arr[high_values]
+
+print(arr[(arr > 20) & (arr < 60)])    # multiple conditions
+
+# masking with NaNs (real ETL case)
+arr = np.array([10, np.nan, 30, np.nan, 50])
+clean = arr[~np.isnan(arr)]
+print(clean)
+
+# replace values using masking
+arr = np.array([100, 200, 300, 400])
+arr[arr > 250] = 250
+print(arr)
+
+# masking in 2D arrays
+data = np.array([
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+])
+print(data[data > 50])
+# output: [60 70 80 90]: masking flattens the result by default
+
+# row-wise filtering (ETL-style)
+# example: keep rows where column 1 > 50
+print(data[data[:, 1] > 50])
 
 # EXTRAS
 rg = np.random.default_rng(1)     # create instance of default random number generator
 a = np.ones((2, 3), dtype = int)
 b = rg.random((2, 3))
 print(a, "\n", b)
-#a += b     # error because datatype of aarrays are different
+#a += b     # error because datatype of arrays are different
 
 c = np.exp(a * 1j)
 print(c)

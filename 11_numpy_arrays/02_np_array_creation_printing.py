@@ -57,6 +57,11 @@ a = np.array([[ 0, 1, 2, 3],
               [ 8, 9, 10, 11]])
 b = a     # no new object is created
 print(b is a)      # a and b are two names for the same ndarray object
+
+arr = np.array([10, 20, 30, 40, 50])
+view = arr[1:4]
+view[:] = 0
+print(arr)     # [10  0  0  0 50]
 # view or shallow copy
 c = a.view()
 print(c is a)      # False
@@ -78,3 +83,21 @@ print(d, "\n", a)
 # PRINTING ARRAYS:
 g = np.arange(24).reshape(2, 3, 4)      # prints 2 3x4 arrays
 print(g)
+
+
+# astype()
+arr = arr.astype(np.float32)
+# This: allocates new memory, copies all values, converts type
+#
+# ❌ It is NOT in-place
+# ❌ O(n) cost
+# ❌ Heavy on large arrays
+
+# Bad pattern (very common)
+arr = arr.astype(np.float32)
+arr = arr.astype(np.float64)
+arr = arr.astype(np.int32)
+# Each line: full memory copy, full data scan
+
+# Better pattern
+arr = np.array(data, dtype=np.float32)

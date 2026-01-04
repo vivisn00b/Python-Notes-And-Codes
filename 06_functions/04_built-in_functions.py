@@ -43,3 +43,30 @@ for i in li:
 calc = lambda x, y: (x+y, x*y)
 res = calc(2, 3)
 print(res)
+
+
+# MAP: applies a given function to each element of an iterable (list, tuple, set, etc.) and returns a map object (iterator)
+# higher-order function used for uniform element-wise transformations, enabling concise and efficient code.
+#
+# Examples:
+s = ['1', '2', '3', '4']
+res = map(int, s)
+#print(res)
+print(list(res))
+
+# Without lambda:
+def square(num):
+    return num ** 2
+nums = [1, 2, 3, 4, 5]
+res = map(square, nums)
+print(list(res))
+# Using lambda:
+nums = [1, 2, 3, 4]
+result = map(lambda x: x * x, nums)
+print(list(result))
+
+# With multiple iterables:
+a = [1, 2, 3]
+b = [4, 5, 6]
+result = map(lambda x, y: x + y, a, b)
+print(list(result))

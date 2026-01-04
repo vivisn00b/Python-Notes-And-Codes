@@ -54,6 +54,9 @@ res = map(int, s)
 #print(res)
 print(list(res))
 
+result = map(lambda x: x*10, [1, 2, 3])
+print(result)
+
 # Without lambda:
 def square(num):
     return num ** 2
@@ -70,3 +73,11 @@ a = [1, 2, 3]
 b = [4, 5, 6]
 result = map(lambda x, y: x + y, a, b)
 print(list(result))
+
+# With for loop:
+out = []
+for x in [1, 2, 3]:
+    out.append(x * 2)
+# Replacing for loop:
+out = list(map(lambda x: x*2, [1, 2, 3]))
+print(out)

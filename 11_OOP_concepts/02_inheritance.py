@@ -32,6 +32,7 @@ class Friendliness:
     def greet(self):
         print("Friendly greeting")
 
+# Multiple inheritance
 class GoldenRetriever(Dog, Friendliness):
     def sound(self):
         print("Golden retriever barks!!!")
